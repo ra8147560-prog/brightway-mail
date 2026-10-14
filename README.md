@@ -19,10 +19,12 @@ A link without a valid `s` value shows "This link is not complete".
 
 ## How the manipulations work
 
-- **Routine use (Standard mode):** the AI assistant has one fixed function, Draft reply. The participant uses it the same way for each email, fills in the [brackets] from the Order details box, and sends.
-- **Infusion use (Full mode):** the AI assistant has five tools (Summarize email, Draft reply, Fill in details, Make it friendlier, Check my reply). Participants are told to use all five for every email; trying to send with unused tools shows a reminder (they may still send).
-- **Notifications:** the first pop-up appears 15 seconds after start, then one every 40 to 60 seconds after the previous one is dismissed. Each pop-up dims the screen, plays a chime, and must be dismissed.
-- **Focus mode:** no pop-ups; the app shows "Focus mode on".
+Every participant first sees a message from the team lead (Dana Brooks) that explains the day's setup, followed by a "Your setup today" summary whose wording matches the manipulation-check answers in the survey.
+
+- **Routine use (Standard mode):** the AI assistant has one function, Draft reply, presented as the team's standard routine. For every email: Draft reply, fill in the [brackets] from the Order details box, Send.
+- **Infusion use (Full mode):** the AI assistant has five tools (Summarize email, Look up order & policy, Draft reply, Improve tone, Check my reply). Participants are asked to use all five for every email; sending with unused tools shows a reminder (they may still send).
+- **Notifications:** first pop-up 12 seconds after start, then one 35 to 50 seconds after the previous one is closed. Pop-ups dim the screen, play a chime, and must be handled; chat messages need a quick reply (two buttons), others are dismissed.
+- **Focus mode:** no pop-ups; the top bar shows "Focus mode on" with a running focus-session timer.
 
 In both AI conditions the participant must use Draft reply and fill every [bracket] before Send works.
 
