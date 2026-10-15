@@ -74,8 +74,8 @@
     }
   ];
   var OLD_MAIL = [
-    { name: "Dana Brooks", initials: "DB", color: "#D6336C", time: "8:52 AM", subject: "Today's work", preview: "Hi! Please answer the 3 customer emails in our inbox today..." },
-    { name: "Team Calendar", initials: "TC", color: "#C2410C", time: "8:30 AM", subject: "Today 9:00 to 10:00", preview: "Your team calendar for today is ready." },
+    { name: "Dana Brooks", initials: "DB", color: "#E8590C", time: "8:52 AM", subject: "Today's work", preview: "Hi! Please answer the 3 customer emails in our inbox today..." },
+    { name: "Team Calendar", initials: "TC", color: "#F59F00", time: "8:30 AM", subject: "Today 9:00 to 10:00", preview: "Your team calendar for today is ready." },
     { name: "IT Help Desk", initials: "IT", color: "#475569", time: "Yesterday", subject: "Sunny Assist is in your mailbox", preview: "The AI assistant now appears on the right side of Sunny Mail..." }
   ];
 
@@ -96,11 +96,11 @@
   ];
 
   var TOOLS = {
-    summarize: { short: "Summarize", label: "Summarize email", hint: "See what the customer needs", icon: '<path d="M5 6h14M5 10h14M5 14h9M5 18h6"/>' },
-    lookup:    { short: "Look up", label: "Look up order & policy", hint: "Get the facts and the rules", icon: '<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>' },
-    ask:       { short: "Ask", label: "Ask Sunny Assist", hint: "Ask questions to help the customer more", icon: '<path d="M4.5 5.5h15v10h-9l-4 3.5v-3.5h-2z"/><path d="M10 9.2a2 2 0 1 1 2.6 1.9c-.4.2-.6.5-.6.9v.3"/>' },
-    draft:     { short: "Draft", label: "Draft reply", hint: "Write a reply with everything you found", icon: '<path d="M4 20h4L19 9l-4-4L4 16z"/>' },
-    polish:    { short: "Check & polish", label: "Check & polish", hint: "Improve the tone and catch mistakes", icon: '<path d="M5 12.5 9.5 17 19 7.5"/>' }
+    summarize: { emoji: "📝", short: "Summarize", label: "Summarize email", hint: "See what the customer needs", icon: '<path d="M5 6h14M5 10h14M5 14h9M5 18h6"/>' },
+    lookup:    { emoji: "🔍", short: "Look up", label: "Look up order & policy", hint: "Get the facts and the rules", icon: '<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>' },
+    ask:       { emoji: "💬", short: "Ask", label: "Ask Sunny Assist", hint: "Ask questions to help the customer more", icon: '<path d="M4.5 5.5h15v10h-9l-4 3.5v-3.5h-2z"/><path d="M10 9.2a2 2 0 1 1 2.6 1.9c-.4.2-.6.5-.6.9v.3"/>' },
+    draft:     { emoji: "✍️", short: "Draft", label: "Draft reply", hint: "Write a reply with everything you found", icon: '<path d="M4 20h4L19 9l-4-4L4 16z"/>' },
+    polish:    { emoji: "✅", short: "Check", label: "Check & polish", hint: "Improve the tone and catch mistakes", icon: '<path d="M5 12.5 9.5 17 19 7.5"/>' }
   };
   var INF_TOOLS = ["summarize", "lookup", "ask", "draft", "polish"];
 
@@ -114,7 +114,7 @@
     sys: '<svg viewBox="0 0 24 24" class="ic"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4.5v4h-4"/></svg>',
     note: '<svg viewBox="0 0 24 24" class="ic"><path d="M5.5 4.5h13v15h-13z"/><path d="M9 9h6M9 12.5h6M9 16h3.5"/></svg>'
   };
-  var APP_COLORS = { chat: "#5B5FC7", mail: "#0B8A84", cal: "#C2410C", sys: "#475569" };
+  var APP_COLORS = { chat: "#5B5FC7", mail: "#0A6CFF", cal: "#E8590C", sys: "#475569" };
 
   // ---------- helpers ----------
   function $(id) { return document.getElementById(id); }
@@ -122,7 +122,7 @@
   function show(id) { ["screen-error", "screen-intro", "screen-work", "screen-done"].forEach(function (s) { $(s).hidden = s !== id; }); window.scrollTo(0, 0); }
   function rand(a, b) { return a + Math.random() * (b - a); }
   function store(k, v) { try { if (v === undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k, v); } catch (e) { return null; } }
-  function toolIcon(t) { return '<svg viewBox="0 0 24 24" class="ic">' + TOOLS[t].icon + "</svg>"; }
+  function toolIcon(t) { return TOOLS[t].emoji; }
 
   // ---------- state ----------
   var params = new URLSearchParams(location.search);
@@ -140,36 +140,27 @@
   // ---------- setup cards + Dana's message ----------
   function setupHTML() {
     var ai = cond.ai === "routine"
-      ? '<div class="setup-card sc-ai"><span class="sc-icon">' + SPARK + '</span><div><div class="sc-label">AI assistant (Sunny Assist)</div>' +
+      ? '<div class="setup-card sc-ai"><div class="sc-top"><span class="sc-emoji">✨</span>AI assistant</div>' +
         '<div class="sc-value">Standard mode</div><div class="sc-sub">One AI function: Draft reply</div>' +
-        '<p>Use it as a fixed step in our team routine, the same way for every email: <span class="flow"><span class="chip chip-ai">Draft reply</span> → fill in the [brackets] → <span class="chip">Send</span></span></p></div></div>'
-      : '<div class="setup-card sc-ai"><span class="sc-icon">' + SPARK + '</span><div><div class="sc-label">AI assistant (Sunny Assist)</div>' +
+        '<div class="sc-steps"><span class="step">✍️ Draft reply</span><span class="arr">→</span><span class="step">✏️ Fill in</span><span class="arr">→</span><span class="step">📤 Send</span></div>' +
+        '<p class="sc-note">Same routine for every email.</p></div>'
+      : '<div class="setup-card sc-ai"><div class="sc-top"><span class="sc-emoji">✨</span>AI assistant</div>' +
         '<div class="sc-value">Full mode</div><div class="sc-sub">Five AI tools</div>' +
-        '<p>Get the most out of the AI: use all five tools for every email, in any order, and ask Sunny Assist questions to help each customer more.</p></div></div>';
+        '<div class="sc-steps">' + INF_TOOLS.map(function (t) { return '<span class="step">' + TOOLS[t].emoji + " " + TOOLS[t].short + "</span>"; }).join("") + "</div>" +
+        '<p class="sc-note">Use all 5 for every email, in any order.</p></div>';
     var nt = cond.notif === "on"
-      ? '<div class="setup-card sc-on"><span class="sc-icon">' + ICON.bell + '</span><div><div class="sc-label">Notifications</div>' +
+      ? '<div class="setup-card sc-on"><div class="sc-top"><span class="sc-emoji">🔔</span>Notifications</div>' +
         '<div class="sc-value">Notifications ON</div><div class="sc-sub">Pop-up messages will appear</div>' +
-        '<p>Chat messages, emails and reminders will pop up while you work. Close each one to keep working. Please turn your sound on.</p>' +
-        '<span class="cal">' + ICON.cal + 'Team calendar: 9:00–10:00 Open hours</span></div></div>'
-      : '<div class="setup-card sc-off"><span class="sc-icon">' + ICON.moon + '</span><div><div class="sc-label">Notifications</div>' +
+        '<p class="sc-note">Close each pop-up to keep working. 🔊 Please turn your sound on.</p>' +
+        '<span class="cal">📅 Team calendar: 9:00–10:00 Open hours</span></div>'
+      : '<div class="setup-card sc-off"><div class="sc-top"><span class="sc-emoji">🌙</span>Notifications</div>' +
         '<div class="sc-value">Focus mode ON</div><div class="sc-sub">No pop-up messages</div>' +
-        '<p>All notifications are paused. Nothing will pop up while you work.</p>' +
-        '<span class="cal">' + ICON.cal + 'Team calendar: 9:00–10:00 Focus hours</span></div></div>';
+        '<p class="sc-note">All notifications are paused while you work.</p>' +
+        '<span class="cal">📅 Team calendar: 9:00–10:00 Focus hours</span></div>';
     return ai + nt;
   }
   function leadMessageHTML() {
-    var h = "<p>Hi! Please answer the 3 customer emails in our inbox this morning.</p>";
-    if (cond.ai === "routine") {
-      h += "<p><b>Sunny Assist is in Standard mode.</b> It has one function, <span class=\"chip chip-ai\">Draft reply</span>, and it is a fixed step in our team routine. Please handle every email the same way: click Draft reply, fill in the parts in [brackets] yourself, then send. If a customer asks something extra, write that answer yourself in the [brackets].</p>";
-    } else {
-      h += "<p><b>Sunny Assist is in Full mode</b> with five AI tools: " +
-        INF_TOOLS.map(function (t) { return '<span class="chip chip-ai">' + TOOLS[t].label + "</span>"; }).join(" ") +
-        ". Please get the most out of it: use all five tools for every email, in any order you like. Ask Sunny Assist questions to find the best way to help each customer.</p>";
-    }
-    h += cond.notif === "on"
-      ? "<p>9:00 to 10:00 is <b>Open hours</b> on our team calendar, so <b>notifications are on</b>: chat messages, emails and reminders will pop up while you work.</p>"
-      : "<p>9:00 to 10:00 is <b>Focus hours</b> on our team calendar, so Sunny Mail <b>pauses all notifications</b> (Focus mode). Nothing will pop up while you work.</p>";
-    return h + "<p>Thanks!<br>Dana</p>";
+    return "Good morning! 👋 Please answer the 3 customer emails today. Your setup is below. Thanks!";
   }
 
   $("setup-grid").innerHTML = setupHTML();
@@ -218,7 +209,7 @@
   }
   function openGuide() {
     openModal("My setup today",
-      '<div class="setup-grid">' + setupHTML() + '</div><article class="lead-msg"><div class="lead-msg-head"><span class="avatar" style="background:#D6336C">DB</span><div><div class="who">Dana Brooks <span class="role">Team Lead</span></div><div class="muted small">8:52 AM</div></div></div><div class="lead-msg-body">' + leadMessageHTML() + "</div></article>",
+      '<div class="chat-msg"><span class="avatar" style="background:#E8590C">DB</span><div><div class="chat-who">Dana Brooks <span class="role">Team Lead</span> <span class="chat-time">8:52 AM</span></div><div class="chat-bubble">' + leadMessageHTML() + '</div></div></div><div class="setup-grid">' + setupHTML() + "</div>",
       [{ label: "Back to work", cls: "btn-primary btn-lg", fn: closeModal }], false);
   }
 

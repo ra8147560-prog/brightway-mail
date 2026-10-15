@@ -19,7 +19,7 @@ A link without a valid `s` value shows "This link is not complete".
 
 ## How the manipulations work
 
-The briefing screen shows "Your setup today" (two cards whose wording matches the survey's manipulation checks) and a short message from the team lead, Dana Brooks.
+The briefing screen shows a two-line chat message from the team lead, Dana Brooks, and "Your setup today": two cards whose wording matches the survey's manipulation checks. Theme: ocean blue, rounded, Nunito font.
 
 **Type of AI use** (Saga & Zmud 1994; Sundaram et al. 2007; Hu et al. 2023)
 

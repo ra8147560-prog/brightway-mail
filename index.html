@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Inbox - Sunny Mail</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B8A84'/%3E%3Ccircle cx='16' cy='14' r='6' fill='%23FFC233'/%3E%3Cpath d='M6 20c3 4 17 4 20 0' fill='none' stroke='%23FFFFFF' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A6CFF'/%3E%3Ccircle cx='16' cy='14' r='6' fill='%23FFC233'/%3E%3Cpath d='M6 20c3 4 17 4 20 0' fill='none' stroke='%23FFFFFF' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -27,9 +30,17 @@
   </header>
   <div class="intro-wrap">
     <div class="intro-head">
-      <p class="eyebrow-time">Today, 8:58 AM</p>
-      <h1>Good morning! Your shift starts at 9:00.</h1>
-      <p class="lead">You work in customer support at <b>Sunny Nest</b>, an online store for home goods. Today you will answer <b>3 customer emails</b> (about 5 minutes).</p>
+      <h1>Good morning! <span aria-hidden="true">☀️</span></h1>
+      <p class="lead">You work in customer support at <b>Sunny Nest</b>, an online home store.</p>
+      <div class="pills"><span class="pill">📧 3 customer emails</span><span class="pill">⏱️ About 5 minutes</span></div>
+    </div>
+
+    <div class="chat-msg">
+      <span class="avatar" style="background:#E8590C">DB</span>
+      <div>
+        <div class="chat-who">Dana Brooks <span class="role">Team Lead</span> <span class="chat-time">8:52 AM</span></div>
+        <div class="chat-bubble" id="lead-msg-body"></div>
+      </div>
     </div>
 
     <section class="setup" aria-label="Your setup today">
@@ -37,20 +48,9 @@
       <div class="setup-grid" id="setup-grid"></div>
     </section>
 
-    <article class="lead-msg">
-      <div class="lead-msg-head">
-        <span class="avatar" style="background:#D6336C">DB</span>
-        <div>
-          <div class="who">Dana Brooks <span class="role">Team Lead, Customer Support</span></div>
-          <div class="muted small">to you, 8:52 AM</div>
-        </div>
-      </div>
-      <div class="lead-msg-body" id="lead-msg-body"></div>
-    </article>
-
     <label class="confirm">
       <input type="checkbox" id="intro-confirm">
-      <span>I read my setup and Dana's message, and I know how to work today.</span>
+      <span>I understand my setup for today.</span>
     </label>
     <button class="btn btn-primary btn-xl" id="btn-start" disabled>Open my inbox</button>
     <p class="small muted center">Please keep this tab open until you get your completion code.</p>
@@ -181,6 +181,6 @@
 
 <div class="toast" id="toast" role="status" hidden></div>
 
-<script src="app.js?v=4"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>
