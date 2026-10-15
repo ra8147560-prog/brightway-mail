@@ -1,7 +1,7 @@
-# Brightway Mail: work-session simulation
+# Sunny Mail: work-session simulation
 
 Website simulation for a 2 x 2 online experiment (Type of AI use x Work interruptions).
-Participants reply to 3 customer emails in a fictional mail app with an AI assistant.
+Participants reply to 3 customer emails in a fictional mail app (Sunny Mail, store: Sunny Nest) with an AI assistant (Sunny Assist).
 The site is static (GitHub Pages) and records nothing; the survey runs on Qualtrics.
 
 ## Condition links
@@ -19,14 +19,22 @@ A link without a valid `s` value shows "This link is not complete".
 
 ## How the manipulations work
 
-Every participant first sees a message from the team lead (Dana Brooks) that explains the day's setup, followed by a "Your setup today" summary whose wording matches the manipulation-check answers in the survey.
+The briefing screen shows "Your setup today" (two cards whose wording matches the survey's manipulation checks) and a short message from the team lead, Dana Brooks.
 
-- **Routine use (Standard mode):** the AI assistant has one function, Draft reply, presented as the team's standard routine. For every email: Draft reply, fill in the [brackets] from the Order details box, Send.
-- **Infusion use (Full mode):** the AI assistant has five tools (Summarize email, Look up order & policy, Draft reply, Improve tone, Check my reply). Participants are asked to use all five for every email; sending with unused tools shows a reminder (they may still send).
-- **Notifications:** first pop-up 12 seconds after start, then one 35 to 50 seconds after the previous one is closed. Pop-ups dim the screen, play a chime, and must be handled; chat messages need a quick reply (two buttons), others are dismissed.
-- **Focus mode:** no pop-ups; the top bar shows "Focus mode on" with a running focus-session timer.
+**Type of AI use** (Saga & Zmud 1994; Sundaram et al. 2007; Hu et al. 2023)
 
-In both AI conditions the participant must use Draft reply and fill every [bracket] before Send works.
+- **Routine use (Standard mode):** one AI function, Draft reply, used as a fixed step in the team routine for every email: Draft reply, fill in the [brackets] yourself, Send. Extra customer questions are answered by hand in the brackets.
+- **Infusion use (Full mode):** five AI tools used to their fullest potential, in any order: Summarize email, Look up order & policy, Ask Sunny Assist, Draft reply, Check & polish.
+  - Extended use: all five tools for every email (sending with unused tools shows a reminder; participants may still send).
+  - Integrative use: the lookup and the answers to questions flow into the draft.
+  - Emergent use: Ask Sunny Assist offers three questions per email (pre-written answers) that add new ways to help the customer, for example a discount code or a free replacement.
+- Email 3 (Priya) is a non-standard case for both conditions: new address, a birthday gift, and a gift note.
+
+**Work interruptions**
+
+- Framed as the team calendar, not as a choice by the team lead: 9:00 to 10:00 is Open hours (notifications on) or Focus hours (Focus mode, notifications paused).
+- **Notifications:** first pop-up 8 seconds after the inbox opens, then one 18 to 28 seconds after the previous one is closed. Pop-ups come from coworkers and systems, appear in six positions (corners, top center, center reminder window), dim the screen, play a chime, and must be closed (chat messages need a quick reply).
+- **Focus mode:** no pop-ups; the status pill shows a running focus timer.
 
 ## Files
 

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Inbox - Brightway Mail</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231556C6'/%3E%3Cpath d='M7 10h18v12H7z' fill='none' stroke='white' stroke-width='2.4' stroke-linejoin='round'/%3E%3Cpath d='M7.5 10.5 16 17l8.5-6.5' fill='none' stroke='white' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css?v=2">
+<title>Inbox - Sunny Mail</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B8A84'/%3E%3Ccircle cx='16' cy='14' r='6' fill='%23FFC233'/%3E%3Cpath d='M6 20c3 4 17 4 20 0' fill='none' stroke='%23FFFFFF' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -18,39 +18,39 @@
   </div>
 </section>
 
-<!-- Intro: message from team lead -->
+<!-- Intro -->
 <section id="screen-intro" class="screen intro-screen" hidden>
   <header class="suitebar">
     <span class="waffle" aria-hidden="true"></span>
     <span class="brand-mark" aria-hidden="true"></span>
-    <span class="suite-name">Brightway Mail</span>
+    <span class="suite-name">Sunny Mail</span>
   </header>
   <div class="intro-wrap">
     <div class="intro-head">
       <p class="eyebrow-time">Today, 8:58 AM</p>
-      <h1>Good morning! Your shift starts now.</h1>
-      <p class="lead">You work in customer support at <b>Brightway Home</b>, an online store for home goods. Your team lead sent you a message about today's work.</p>
+      <h1>Good morning! Your shift starts at 9:00.</h1>
+      <p class="lead">You work in customer support at <b>Sunny Nest</b>, an online store for home goods. Today you will answer <b>3 customer emails</b> (about 5 minutes).</p>
     </div>
-
-    <article class="lead-msg">
-      <div class="lead-msg-head">
-        <span class="avatar" style="background:#B4235A">DB</span>
-        <div>
-          <div class="who">Dana Brooks <span class="role">Team Lead, Customer Support</span></div>
-          <div class="muted small">to you, 8:58 AM</div>
-        </div>
-      </div>
-      <div class="lead-msg-body" id="lead-msg-body"></div>
-    </article>
 
     <section class="setup" aria-label="Your setup today">
       <h2>Your setup today</h2>
       <div class="setup-grid" id="setup-grid"></div>
     </section>
 
+    <article class="lead-msg">
+      <div class="lead-msg-head">
+        <span class="avatar" style="background:#D6336C">DB</span>
+        <div>
+          <div class="who">Dana Brooks <span class="role">Team Lead, Customer Support</span></div>
+          <div class="muted small">to you, 8:52 AM</div>
+        </div>
+      </div>
+      <div class="lead-msg-body" id="lead-msg-body"></div>
+    </article>
+
     <label class="confirm">
       <input type="checkbox" id="intro-confirm">
-      <span>I read Dana's message and I know how to work today.</span>
+      <span>I read my setup and Dana's message, and I know how to work today.</span>
     </label>
     <button class="btn btn-primary btn-xl" id="btn-start" disabled>Open my inbox</button>
     <p class="small muted center">Please keep this tab open until you get your completion code.</p>
@@ -62,7 +62,7 @@
   <header class="suitebar">
     <span class="waffle" aria-hidden="true"></span>
     <span class="brand-mark" aria-hidden="true"></span>
-    <span class="suite-name">Brightway Mail</span>
+    <span class="suite-name">Sunny Mail</span>
     <div class="search" aria-hidden="true">
       <svg viewBox="0 0 24 24" class="ic"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
       <span>Search</span>
@@ -70,8 +70,8 @@
     <div class="suite-right">
       <span class="status" id="status-notif"></span>
       <span class="status status-ai" id="status-ai"></span>
-      <button class="suite-btn" id="btn-guide" title="Dana's message">
-        <svg viewBox="0 0 24 24" class="ic"><path d="M4.5 5.5h15v10h-9l-4 3.5v-3.5h-2z"/></svg><span>Dana's message</span>
+      <button class="suite-btn" id="btn-guide" title="My setup and Dana's message">
+        <svg viewBox="0 0 24 24" class="ic"><path d="M4.5 5.5h15v10h-9l-4 3.5v-3.5h-2z"/></svg><span>My setup</span>
       </button>
       <span class="avatar me" aria-label="You">ME</span>
     </div>
@@ -87,6 +87,7 @@
     <span class="rb"><svg viewBox="0 0 24 24" class="ic"><path d="M14 8l5 4.5-5 4.5M18.5 12.5H10a5 5 0 0 0-5 5v1"/></svg>Forward</span>
     <span class="rb-sep"></span>
     <span class="rb"><svg viewBox="0 0 24 24" class="ic"><path d="M5 5h14v14H5z"/><path d="m9 12 2 2 4-4"/></svg>Mark as read</span>
+    <span class="rb rb-clock" id="rb-clock"></span>
   </div>
 
   <div class="taskbar" id="taskbar">
@@ -116,7 +117,7 @@
     <aside class="list" aria-label="Inbox">
       <div class="list-head">
         <h2>Inbox</h2>
-        <span class="muted small">support@brightwayhome.com</span>
+        <span class="muted small">support@sunnynest.com</span>
       </div>
       <ul id="mail-list"></ul>
     </aside>
@@ -127,7 +128,7 @@
       <div class="ai-head">
         <span class="ai-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5c.6 3.9 2.6 5.9 6.5 6.5-3.9.6-5.9 2.6-6.5 6.5-.6-3.9-2.6-5.9-6.5-6.5 3.9-.6 5.9-2.6 6.5-6.5z"/><path d="M18.5 15.5c.3 1.7 1.1 2.5 2.8 2.8-1.7.3-2.5 1.1-2.8 2.8-.3-1.7-1.1-2.5-2.8-2.8 1.7-.3 2.5-1.1 2.8-2.8z"/></svg></span>
         <div>
-          <div class="ai-title">Brightway Assist</div>
+          <div class="ai-title">Sunny Assist</div>
           <div class="ai-mode" id="ai-mode"></div>
         </div>
       </div>
@@ -152,12 +153,12 @@
   </div>
 </section>
 
-<!-- Notification toast -->
+<!-- Notification -->
 <div class="notif-shade" id="notif-shade" hidden></div>
 <div class="notif" id="notif" role="alertdialog" aria-labelledby="notif-title" aria-describedby="notif-body" hidden>
   <div class="notif-top">
     <span class="notif-app"><span class="notif-app-icon" id="notif-app-icon"></span><span id="notif-app"></span></span>
-    <span class="notif-time">now</span>
+    <span class="notif-time" id="notif-time">now</span>
   </div>
   <div class="notif-main">
     <span class="notif-avatar" id="notif-avatar"></span>
@@ -180,6 +181,6 @@
 
 <div class="toast" id="toast" role="status" hidden></div>
 
-<script src="app.js?v=2"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
