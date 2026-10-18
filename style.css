@@ -314,6 +314,15 @@ mark { background: var(--mark); color: inherit; padding: 0 .25em; border-radius:
 .done-check svg { width: 40px; height: 40px; fill: none; stroke: #fff; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 .code-box { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 6px auto 20px; padding: 16px 20px; border: 2px dashed var(--blue); border-radius: var(--r-lg); background: var(--blue-soft); flex-wrap: wrap; }
 #done-code { font-size: 2rem; font-weight: 800; letter-spacing: .12em; font-family: Consolas, "SF Mono", Menlo, monospace; }
+.done-setup { margin: 0 auto 20px; padding: 16px 18px; border: 1.5px solid var(--line-2); border-radius: var(--r-lg); background: var(--pane); text-align: left; }
+.done-setup-title { margin: 0 0 10px; font-weight: 800; color: var(--ink-2); }
+.done-setup-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+.ds-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: var(--r); font-size: 1.05rem; color: var(--ink); }
+.ds-emoji { font-size: 1.2rem; flex: none; }
+.ds-ai { background: var(--ai-soft); }
+.ds-on { background: var(--coral-soft); }
+.ds-off { background: var(--green-soft); }
+.done-setup .small { margin: 0; }
 
 /* responsive */
 @media (max-width: 1360px) { .workspace { grid-template-columns: 165px 260px minmax(0,1fr) 335px; } .search { display: none; } }
