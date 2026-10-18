@@ -567,6 +567,14 @@
     store("bw-done-" + key, "1");
     var code = codeOf(cond);
     $("done-code").textContent = code;
+    // Setup recap (wording matches the survey's MC1/MC2 answer options)
+    $("done-setup").innerHTML =
+      (cond.ai === "routine"
+        ? '<div class="ds-item ds-ai"><span class="ds-emoji">✨</span><span><b>Standard mode</b>: one AI function (Draft reply)</span></div>'
+        : '<div class="ds-item ds-ai"><span class="ds-emoji">✨</span><span><b>Full mode</b>: five AI tools</span></div>') +
+      (cond.notif === "on"
+        ? '<div class="ds-item ds-on"><span class="ds-emoji">🔔</span><span><b>Notifications ON</b>: pop-up messages appeared</span></div>'
+        : '<div class="ds-item ds-off"><span class="ds-emoji">🌙</span><span><b>Focus mode ON</b>: no pop-up messages</span></div>');
     $("btn-copy").onclick = function () {
       var btn = this;
       function ok() { btn.textContent = "Copied ✓"; setTimeout(function () { btn.textContent = "Copy code"; }, 2000); }
